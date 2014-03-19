@@ -7,8 +7,9 @@
 
   $(document).ready(function() {
     $('#revmsg-CallSignupForm').attr('action', 'javascript:void(0);');
-    return $('#revmsg-CallSignupForm').submit(function() {
+    $('#revmsg-CallSignupForm').submit(function(e) {
       var info, revereCalling, s;
+      e.preventDefault();
       info = {
         phone: $('#phone').val(),
         campaign_line: $('#campaign_line').val()
