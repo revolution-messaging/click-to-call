@@ -23,7 +23,7 @@
         info.email = $('#email').val();
       }
       s = isSecure() ? 's' : '';
-      revereCalling = 'http' + s + '://phone.reverehq.com/outgoing/?callback=?';
+      revereCalling = 'http' + s + '://phone.reverehq.com/outgoing/?';
       $.get(revereCalling, info, function(data) {
         if (data.err) {
           $('#revmsg-click-to-call #revmsg-CallSignupForm .err').html(data.message);
