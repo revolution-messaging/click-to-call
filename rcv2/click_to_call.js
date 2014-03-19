@@ -27,10 +27,11 @@
       $.get(revereCalling, info, function(data) {
         if (data.err) {
           $('#revmsg-click-to-call #revmsg-CallSignupForm .err').html(data.message);
-          return $('#revmsg-click-to-call #revmsg-CallSignupForm .err').show();
+          $('#revmsg-click-to-call #revmsg-CallSignupForm .err').show();
         } else {
           $('#revmsg-click-to-call .success').html(data.message);
-          return $('#revmsg-click-to-call .success').show();
+          $('#revmsg-CallSignupForm').hide();
+          $('#revmsg-click-to-call .success').show();
         }
       });
       return false;
