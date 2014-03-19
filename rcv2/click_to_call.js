@@ -24,7 +24,7 @@
       }
       s = isSecure() ? 's' : '';
       revereCalling = 'http' + s + '://phone.reverehq.com/outgoing/?callback=?';
-      $.getJSON(revereCalling, info, function(data) {
+      $.get(revereCalling, info, function(data) {
         if (data.err) {
           $('#revmsg-click-to-call #revmsg-CallSignupForm .err').html(data.message);
           return $('#revmsg-click-to-call #revmsg-CallSignupForm .err').show();
