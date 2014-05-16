@@ -7,8 +7,9 @@
 
   $(document).ready(function() {
     $('#revmsg-CallSignupForm').attr('action', 'javascript:void(0);');
-    return $('#revmsg-CallSignupForm').submit(function() {
+    $('#revmsg-CallSignupForm').submit(function(e) {
       var info, revereCalling, s;
+      e.preventDefault();
       info = {
         phone: $('#phone').val(),
         campaign_line: $('#campaign_line').val()
@@ -23,14 +24,15 @@
         info.email = $('#email').val();
       }
       s = isSecure() ? 's' : '';
-      revereCalling = 'http' + s + '://calling.revmsg.net/outgoing/?callback=?';
-      $.getJSON(revereCalling, info, function(data) {
+      revereCalling = 'http' + s + '://phone.reverehq.com/outgoing/';
+      $.get(revereCalling, info, function(data) {
         if (data.err) {
           $('#revmsg-click-to-call #revmsg-CallSignupForm .err').html(data.message);
-          return $('#revmsg-click-to-call #revmsg-CallSignupForm .err').show();
+          $('#revmsg-click-to-call #revmsg-CallSignupForm .err').show();
         } else {
           $('#revmsg-click-to-call .success').html(data.message);
-          return $('#revmsg-click-to-call .success').show();
+          $('#revmsg-CallSignupForm').hide();
+          $('#revmsg-click-to-call .success').show();
         }
       });
       return false;

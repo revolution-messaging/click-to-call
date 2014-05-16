@@ -1,4 +1,4 @@
-## Click-to-Call for Revolution Messaging
+## Click-to-Call for Revere Calling
 
 # Instructions
 
