@@ -30,9 +30,13 @@
           $('#revmsg-click-to-call #revmsg-CallSignupForm .err').html(data.message);
           $('#revmsg-click-to-call #revmsg-CallSignupForm .err').show();
         } else {
-          $('#revmsg-click-to-call .success').html(data.message);
-          $('#revmsg-CallSignupForm').hide();
-          $('#revmsg-click-to-call .success').show();
+          if($('#revmsghtml').length>0 && $('#revmsghtml').val()!='' && $('#revmsghtml').val()!=window.location && $('#always_redirect').val()=='true') {
+            window.location = 'http://'+$('#revmsghtml').val();
+          } else {
+            $('#revmsg-click-to-call .success').html(data.message);
+            $('#revmsg-CallSignupForm').hide();
+            $('#revmsg-click-to-call .success').show();
+          }
         }
       });
       return false;
